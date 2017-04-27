@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { createStore } from 'redux'
 import axios from 'axios'
 
 import styles from './InputSearch.css';
+import ArtistNameSearchResult from '../../containers/ArtistNameSearchResult/ArtistNameSearchResult.js';
+
+
+
+
+
 
 class InputSearch extends Component {
   render() {
@@ -11,15 +18,36 @@ class InputSearch extends Component {
         <button id="getArtistName">Search an artist</button>
         <input type="text" id="inputSearch" placeholder="Search the name of your favorite artist">
         </input>
-        <textarea id="searchResult"></textarea>
+        
       </div>
     )
+
+    
+  }
+
+  componentDidMount() {
+    //definition of persisted data
+    document.getElementById('getArtistName')
+      .addEventListener('click', function() {
+       let search = document.getElementById('inputSearch').value;
+       if(search != "")
+       {   
+          //we persist the search value of the artist name
+          localStorage.artistNameSearchValue = document.getElementById('inputSearch').value;
+
+          //we call getArtista dispatcher
+          search.replace(/ /g,"+");
+          store.dispatch({ type: 'getArtista',payload: "https://api.spotify.com/v1/search?q="+search+"&type=artist" })
+       }
+         
+      })
+
   }
 }
 
 
 
-function counter(state = "?", action) {
+function reducer(state = "?", action) {
   switch (action.type) {
 
   case 'getArtista':
@@ -34,10 +62,17 @@ function counter(state = "?", action) {
 
    case 'showArtista':
    //document.getElementById('inputSearch').value = action.payload;
-    
+    /*
     for(let i = 0;i < action.payload.artists.items.length;i++){
      document.getElementById('searchResult').value += action.payload.artists.items[i].name + "\n";
-    }
+    }*/
+
+    //we persist our list of artists name
+    localStorage.artistNameList = JSON.stringify(action.payload);
+    //we render the artist list result view
+    ReactDOM.render((
+      <ArtistNameSearchResult />
+    ), document.getElementById('root'));
     
    
    return action.payload
@@ -48,29 +83,10 @@ function counter(state = "?", action) {
   }
 }
 
-let store = createStore(counter)
-
-store.subscribe(() =>
-  console.log(store.getState())
-)
- 
-// The only way to mutate the internal state is to dispatch an action. 
-// The actions can be serialized, logged or stored and later replayed. 
-window.onload = function(){
-
-document.getElementById('getArtistName')
-      .addEventListener('click', function() {
-       let search = document.getElementById('inputSearch').value;
-       if(search != "")
-       {   
-          search.replace(/ /g,"+");
-          store.dispatch({ type: 'getArtista',payload: "https://api.spotify.com/v1/search?q="+search+"&type=artist" })
-       }
-         
-      })
+let store = createStore(reducer)
 
 
-};
+
 
 
 

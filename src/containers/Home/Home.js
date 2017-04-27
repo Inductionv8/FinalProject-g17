@@ -6,6 +6,7 @@ import Title from '../../components/Title/Title';
 import Subtitle from '../../components/Subtitle/Subtitle';
 import Header from '../../components/Header/Header';
 import InputSearch from '../../components/InputSearch/InputSearch';
+import FavoriteSongBox from '../../components/FavoriteSongBox/FavoriteSongBox';
 
 class Home extends Component {
   render() {
@@ -13,8 +14,10 @@ class Home extends Component {
       <div>
         <Header />
         <Title texts="Sfotify" styleName="text-color-white" />
-        <InputSearch />
         <Subtitle />
+        <InputSearch />
+         <FavoriteSongBox />
+        
       </div>
     );
   }
