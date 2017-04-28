@@ -51,6 +51,7 @@ function reducer(state = "?", action) {
   switch (action.type) {
 
   case 'getArtista':
+
      axios.get(action.payload)
       .then((response) => { 
         //console.log(response.data.name);
@@ -61,11 +62,6 @@ function reducer(state = "?", action) {
 
 
    case 'showArtista':
-   //document.getElementById('inputSearch').value = action.payload;
-    /*
-    for(let i = 0;i < action.payload.artists.items.length;i++){
-     document.getElementById('searchResult').value += action.payload.artists.items[i].name + "\n";
-    }*/
 
     //we persist our list of artists name
     localStorage.artistNameList = JSON.stringify(action.payload);

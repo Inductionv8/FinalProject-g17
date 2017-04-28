@@ -2,7 +2,15 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux'
 
+import ArtistBlock from '../../components/ArtistBlock/ArtistBlock';
+import ArtistNameSearchResult from '../../containers/ArtistNameSearchResult/ArtistNameSearchResult.js';
+
 import styles from './ArtistsResultList.css';
+
+
+
+
+
 
 
 class ArtistsResultList extends Component {
@@ -10,8 +18,8 @@ class ArtistsResultList extends Component {
     return (
       <div>
         <textarea id="res"></textarea>
-        
-      </div>
+            
+        </div>
    
     )
   }
@@ -19,19 +27,16 @@ class ArtistsResultList extends Component {
 
 
 
+
   componentDidMount() {
-      console.log(JSON.parse(localStorage.artistNameList));
+
+      //FOR EACH ARTIST NAME WE GOT
    for(let i = 0;i < JSON.parse(localStorage.artistNameList).artists.items.length ;i++){
      document.getElementById('res').value += JSON.parse(localStorage.artistNameList).artists.items[i].name + "\n";
     }
 
-
-    //document.getElementById('res').innerHTML += localStorage.artistNameList;
   }
 }
-
-
-
 
 
 export default ArtistsResultList;

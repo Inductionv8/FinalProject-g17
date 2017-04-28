@@ -19,10 +19,7 @@ class ArtistsResultSearchNewSearch extends Component {
     )
   }
 
-  componentDidMount() {
-    //definition of persisted data
-
-  }
+ 
 }
 
 

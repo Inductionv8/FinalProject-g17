@@ -7,6 +7,8 @@ window.onload = function(){
 //definition of persisted data
 localStorage.setItem("artistNameSearchValue", "");
 localStorage.setItem("artistNameList", "");
+localStorage.setItem("artistBlockName","");
+localStorage.setItem("artistBlockImg","");
 };
 
 

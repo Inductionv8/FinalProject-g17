@@ -16,7 +16,7 @@ class Home extends Component {
         <Title texts="Sfotify" styleName="text-color-white" />
         <Subtitle />
         <InputSearch />
-         <FavoriteSongBox />
+       
         
       </div>
     );

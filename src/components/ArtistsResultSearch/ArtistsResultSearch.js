@@ -19,7 +19,7 @@ class ArtistsResultSearch extends Component {
 
 
   componentDidMount() {
-    console.log(localStorage.artistNameSearchValue);
+    //console.log(localStorage.artistNameSearchValue);
     document.getElementById('currentSearch').innerHTML += localStorage.artistNameSearchValue;
   }
 }
