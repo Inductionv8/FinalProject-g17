@@ -1,17 +1,36 @@
 .FavoriteSongBox {
   border: 1px solid black ;
-  width:35%;
+  background-color: #0C0C0C;
+  width: 400px;
+  margin-left: 18%;
   position:absolute;
 }
 
 .FavoriteSongBox-album {
-  display: inline;
+  position: relative;
   float:left;
-  width: 32%;
+  padding: 10px;
 }
 
 .FavoriteSongBox-description {
-  display: inline;
-  float:right;
-  width: 68%;
+  position: relative;
+  float:left;
+  color: #ffffff;
+  margin: 5px;
+}
+
+.FavoriteSongBox-songName {
+  font-size: 25px;
+  margin: 10px;
+  margin-left: 5px;
+}
+
+.FavoriteSongBox-artistName{
+  font-size: 15px;
+  margin: 5px;
+}
+
+.FavoriteSongBox-albumName {
+  font-size: 15px;
+  margin-left: 5px;
 }

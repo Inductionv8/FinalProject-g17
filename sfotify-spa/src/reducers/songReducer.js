@@ -20,6 +20,9 @@ export default function reducer(state={
         song: action.payload,
       }
     }
+    default: {
+      console.log("You Shouldn be here");
+    }
   }
   return state;
 }

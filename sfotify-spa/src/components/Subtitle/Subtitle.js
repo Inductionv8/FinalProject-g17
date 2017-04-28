@@ -5,7 +5,7 @@ class Subtitle extends Component {
 
    render() {
       return (
-           <div>
+           <div className={this.props.subtitleClass}>
                 <h2>{this.props.subtitleText}</h2>
            </div>
       );
@@ -13,7 +13,8 @@ class Subtitle extends Component {
 }
 
 Subtitle.defaultProps={
-    subtitleText: "Search your favourite songs over Spotify, just enter an artist's name in the following search box and enjoy!"
+    subtitleText: "Search your favourite songs over Spotify, just enter an artist's name in the following search box and enjoy!",
+    subtitleClass: "subtitle-container"
 }
 
 export default Subtitle;
